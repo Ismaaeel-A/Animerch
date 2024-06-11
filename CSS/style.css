@@ -20,10 +20,19 @@ body {
 
     & a {
         color: silver;
+
+        &:hover {
+            color: thistle;
+        }
     }
 
     & img[alt="logo"] {
         width: 4rem;
+        margin-left: 1.3rem;
+    }
+
+    & button {
+        border-color: silver;
     }
 }
 
@@ -55,15 +64,45 @@ footer {
         text-decoration: underline;
     }
 
-    & input,
-    textarea {
+    & form {
+        margin-inline: auto;
+        margin-block: 2rem;
+        width: fit-content;
+        padding: 1rem;
+        border-radius: 1rem;
         border: none;
-        resize: none;
+        box-shadow: 0 0 1rem black;
 
-        width: 20rem;
+        & textarea {
+            height: 6rem;
+        }
+
+        & input,
+        textarea,
+        button {
+            border: none;
+            resize: none;
+            margin-block: 0.5rem;
+            width: 25rem;
+        }
+
     }
 
+
 }
-
-
 /* Contact Page CSS */
+
+
+
+/* Store Page CSS */
+[store]{
+    & .card{
+        width: 250px;
+        padding: 0;
+        & img{
+            width: 250px;
+            height: 300px;
+        }
+    }
+}
+/* Store Page CSS */
