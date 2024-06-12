@@ -39,20 +39,20 @@
 
   <main class="container-fluid">
     <section class="contentSection">
-      <div class="row d-flex justify-content-between">
+      <div class="row d-flex align-content-center filterSort_opt">
 
-        <div class="col-3 filter">
+        <div class="filter">
           <label>filter:
-            <select name="catergory" id="catergory">
-              <option value=""></option>
-              <option value="">Clothes</option>
-              <option value="">Figures</option>
-              <option value="">Art</option>
+            <select name="catergory" id="catergory" catergory oninput="catergoryLog()">
+              <option value="0"></option>
+              <option value="1">Clothes</option>
+              <option value="2">Figures</option>
+              <option value="3">Art</option>
             </select>
           </label>
         </div>
 
-        <div class="col-3 sort">
+        <div class="sort">
           <label>sort:
             <select name="catergory" id="catergory">
               <option value=""></option>
@@ -63,12 +63,18 @@
             </select>
           </label>
 
-          <label total_products></label>
+          <!-- <label total_products class="mx-2">600 products</label> -->
+        </div>
+
+        <div class="search">
+          <label>search:
+            <input type="text" search>
+          </label>
         </div>
 
       </div>
 
-      <div class="row" productDisplay>
+      <div class="container d-flex flex-wrap justify-content-center bg-secondary" productDisplay>
 
       </div>
     </section>
