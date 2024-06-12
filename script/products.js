@@ -7,62 +7,61 @@ let products = JSON.parse(localStorage.getItem('products')) ?
         JSON.stringify(
 
             [{
-                    id: "3",
-                    productName: "ttibs",
-                    catergory: "art",
-                    price: 123,
-                    img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
-                },
+                id: "3",
+                productName: "ttibs",
+                catergory: "art",
+                price: 123,
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+            },
 
-                {
-                    id: "57",
-                    productName: "toys",
-                    catergory: "cups",
-                    price: 123,
-                    img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
-                },
+            {
+                id: "57",
+                productName: "toys",
+                catergory: "cups",
+                price: 123,
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+            },
 
-                {
-                    id: "52",
-                    productName: "toys",
-                    catergory: "cups",
-                    price: 123,
-                    img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
-                },
+            {
+                id: "52",
+                productName: "toys",
+                catergory: "cups",
+                price: 123,
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+            },
 
-                {
-                    id: "51",
-                    productName: "toys5432",
-                    catergory: "clothes",
-                    price: 123,
-                    img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
-                },
+            {
+                id: "51",
+                productName: "toys5432",
+                catergory: "clothes",
+                price: 123,
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+            },
 
-                {
-                    id: "5",
-                    productName: "toys",
-                    catergory: "figures",
-                    price: 123,
-                    img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
-                },
+            {
+                id: "5",
+                productName: "toys",
+                catergory: "figures",
+                price: 123,
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+            },
 
-                {
-                    id: "4",
-                    productName: "xsdb",
-                    catergory: "clothes",
-                    price: 123,
-                    img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
-                }
+            {
+                id: "4",
+                productName: "xsdb",
+                catergory: "clothes",
+                price: 123,
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+            }
             ]
-
         )
     )
 
-let total_products
+let searchValue = document.querySelector('[search]')
 let displayArea = document.querySelector('[productDisplay]')
 
 function allProducts() {
-        displayArea.innerHTML = ""
+    displayArea.innerHTML = ""
     products.forEach(product => {
         displayArea.innerHTML +=
             `
@@ -76,8 +75,9 @@ function allProducts() {
         `
     });
 }
-
 allProducts()
+
+
 
 let catergory = document.querySelector('[catergory]')
 
@@ -95,16 +95,7 @@ function catergoryLog() {
 
         products.forEach(product => {
             if (`${product.catergory}` == "clothes")
-                displayArea.innerHTML +=
-                `
-      <div class="card m-3 bg-primary">
-        <img src="${product.img_url}"" class=" card-img-top" alt="${product.productName}">
-        <div class="card-body">
-          <h5>${product.productName}</h5>
-          <p class="card-text">R${product.price}</p>
-        </div>
-      </div>
-            `
+                searchResult(product)
         })
     }
 
@@ -113,16 +104,7 @@ function catergoryLog() {
 
         products.forEach(product => {
             if (`${product.catergory}` == "figures")
-                displayArea.innerHTML +=
-                `
-      <div class="card m-3 bg-primary">
-        <img src="${product.img_url}"" class=" card-img-top" alt="${product.productName}">
-        <div class="card-body">
-          <h5>${product.productName}</h5>
-          <p class="card-text">R${product.price}</p>
-        </div>
-      </div>
-            `
+                searchResult(product)
         })
     }
 
@@ -131,53 +113,42 @@ function catergoryLog() {
 
         products.forEach(product => {
             if (`${product.catergory}` == "art")
-                displayArea.innerHTML +=
-                `
-      <div class="card m-3 bg-primary">
-        <img src="${product.img_url}"" class=" card-img-top" alt="${product.productName}">
-        <div class="card-body">
-          <h5>${product.productName}</h5>
-          <p class="card-text">R${product.price}</p>
-        </div>
-      </div>
-            `
+                searchResult(product)
         })
     }
 }
-/* let searchProduct = document.querySelector('[searchProduct]')
-searchProduct.addEventListener("keyup", () => {
-    try{
-        let input = searchProduct.value.toLowerCase()
-        console.log(input)
+
+
+
+function searchResult(product) {
+    displayArea.innerHTML +=
+        `
+    <div class="card m-3 bg-primary">
+    <img src="${product.img_url}"" class=" card-img-top" alt="${product.productName}" style="width: 200px; height: 200px;">
+    <div class="card-body">
+    <h5>${product.productName}</h5>
+    <p class="card-text">R${product.price}</p>
+    </div>
+    </div>
+    `
+}
+
+function search() { 
+
+    if (searchValue.value.length > 2){
+        displayArea.innerHTML = ""
         
-        let filteredProducts = products.filter(
-            (product) =>
-              product.productName.toLowerCase().includes(input) ||
-              product.category.toLowerCase().includes(input)
-               
-          )
-          console.log(filteredProducts)
+        products.forEach(product => { 
+            let valid = product.productName.toLowerCase().includes(searchValue.value)
+            if (valid === true) {
+                searchResult(product)
+            } else{
+                console.log("problem")
+            }          
+        })
 
-          displayArea(filteredProducts)
-          if (!filteredProducts.length === 0) {
-            allProducts()
-          }
-    } catch(e){
-        displayArea.innerHTML = `<div class="alert alert-warning">dududud</div>`;
+    } else {
+        allProducts()
     }
-}); */
 
-let searchProduct = document.querySelector('[searchProduct]')
-searchProduct.addEventListener('keyup', () => {
-    try {
-        if (searchProduct.value.length < 1) {
-            allProducts(products)
-        }
-        let filteredProduct = products.filter(product => product.productName.toLowerCase().includes(searchProduct.value.toLowerCase()))
-        /* allProducts(filteredProduct) */
-        console.log(filteredProduct)
-        if (!filteredProduct.length) throw new Error(`${searchProduct.value} product was not found`)
-    } catch (e) {
-        displayArea.textContent = e.message || 'Please try again later'
-    }
-})  
+}
