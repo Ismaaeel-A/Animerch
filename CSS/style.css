@@ -42,7 +42,6 @@ body {
 
     & img[alt="logo"] {
         width: 4rem;
-        margin-left: 1.3rem;
     }
 
     & button {

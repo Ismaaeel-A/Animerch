@@ -62,7 +62,7 @@ let total_products
 let displayArea = document.querySelector('[productDisplay]')
 
 function allProducts() {
-
+        displayArea.innerHTML = ""
     products.forEach(product => {
         displayArea.innerHTML +=
             `
@@ -144,3 +144,40 @@ function catergoryLog() {
         })
     }
 }
+/* let searchProduct = document.querySelector('[searchProduct]')
+searchProduct.addEventListener("keyup", () => {
+    try{
+        let input = searchProduct.value.toLowerCase()
+        console.log(input)
+        
+        let filteredProducts = products.filter(
+            (product) =>
+              product.productName.toLowerCase().includes(input) ||
+              product.category.toLowerCase().includes(input)
+               
+          )
+          console.log(filteredProducts)
+
+          displayArea(filteredProducts)
+          if (!filteredProducts.length === 0) {
+            allProducts()
+          }
+    } catch(e){
+        displayArea.innerHTML = `<div class="alert alert-warning">dududud</div>`;
+    }
+}); */
+
+let searchProduct = document.querySelector('[searchProduct]')
+searchProduct.addEventListener('keyup', () => {
+    try {
+        if (searchProduct.value.length < 1) {
+            allProducts(products)
+        }
+        let filteredProduct = products.filter(product => product.productName.toLowerCase().includes(searchProduct.value.toLowerCase()))
+        /* allProducts(filteredProduct) */
+        console.log(filteredProduct)
+        if (!filteredProduct.length) throw new Error(`${searchProduct.value} product was not found`)
+    } catch (e) {
+        displayArea.textContent = e.message || 'Please try again later'
+    }
+})  
