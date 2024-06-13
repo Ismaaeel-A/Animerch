@@ -11,7 +11,7 @@ let products = JSON.parse(localStorage.getItem('products')) ?
                 productName: "ttibs",
                 catergory: "art",
                 price: 123,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
             },
 
             {
@@ -19,7 +19,7 @@ let products = JSON.parse(localStorage.getItem('products')) ?
                 productName: "toys",
                 catergory: "cups",
                 price: 123,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
             },
 
             {
@@ -27,7 +27,7 @@ let products = JSON.parse(localStorage.getItem('products')) ?
                 productName: "toys",
                 catergory: "cups",
                 price: 123,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
             },
 
             {
@@ -35,7 +35,7 @@ let products = JSON.parse(localStorage.getItem('products')) ?
                 productName: "toys5432",
                 catergory: "clothes",
                 price: 123,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
             },
 
             {
@@ -43,7 +43,7 @@ let products = JSON.parse(localStorage.getItem('products')) ?
                 productName: "toys",
                 catergory: "figures",
                 price: 123,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
             },
 
             {
@@ -51,7 +51,7 @@ let products = JSON.parse(localStorage.getItem('products')) ?
                 productName: "xsdb",
                 catergory: "clothes",
                 price: 123,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/Asuna.webp"
+                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
             }
             ]
         )
@@ -82,7 +82,6 @@ allProducts()
 let catergory = document.querySelector('[catergory]')
 
 function catergoryLog() {
-    console.log(catergory.value)
 
     if (catergory.value == 0) {
         displayArea.innerHTML = ""
@@ -95,7 +94,7 @@ function catergoryLog() {
 
         products.forEach(product => {
             if (`${product.catergory}` == "clothes")
-                searchResult(product)
+                createCard(product)
         })
     }
 
@@ -104,7 +103,7 @@ function catergoryLog() {
 
         products.forEach(product => {
             if (`${product.catergory}` == "figures")
-                searchResult(product)
+                createCard(product)
         })
     }
 
@@ -113,14 +112,14 @@ function catergoryLog() {
 
         products.forEach(product => {
             if (`${product.catergory}` == "art")
-                searchResult(product)
+                createCard(product)
         })
     }
 }
 
 
 
-function searchResult(product) {
+function createCard(product) {
     displayArea.innerHTML +=
         `
     <div class="card m-3 bg-primary">
@@ -141,7 +140,7 @@ function search() {
         products.forEach(product => { 
             let valid = product.productName.toLowerCase().includes(searchValue.value)
             if (valid === true) {
-                searchResult(product)
+                createCard(product)
             } else{
                 console.log("problem")
             }          
