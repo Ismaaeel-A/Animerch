@@ -53,7 +53,7 @@ body {
     min-height: 90vh;
     max-height: auto;
     /* width: 100vw; */
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
     background-color: rgb(232, 232, 232);
 }
 
@@ -111,37 +111,43 @@ footer {
 
 /* Store Page CSS */
 [store] {
-    & .filterSort_opt {
-        background-color: var(--light);
-        color: var(--secondary);
-        padding: 0.2rem;
-        height: 4rem;
 
-        & .filter,
-        .sort,
-        .search {
-            width: 11rem;
-            padding-inline: 0.5rem;
-            margin-block: 0.3rem;
+    .filterSortSearch{
+        position: absolute;
+        z-index: 2;
+    
+        & .card-body{
+            height: fit-content;
+            width: 300px;
 
-            & select, input {
-                width: 6rem;
-                height: 2rem;
+            & .filter,
+            .sort,
+            .search {
+                width: 100%;
+                padding-inline: 0.5rem;
+                margin-block: 0.3rem;
+    
+                & select, input {
+                    width: 240px;
+                    height: 2rem;
+                }
             }
         }
     }
 
     & [productDisplay]{
-        height: 100%;
+        min-height: 90vh;
+        margin-bottom: 0;
+        padding-top: 50px;
     }
 
     & .card {
-        width: 250px;
-        padding: 0;
+        width: 200px;
+        height: 280px;
 
         & img {
-            width: 250px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
         }
     }
 }
