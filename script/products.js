@@ -63,7 +63,7 @@ let products = JSON.parse(localStorage.getItem('products')) ?
         )
     )
 
-    let checkoutCart = JSON.parse(localStorage.getItem('checkout'))
+let checkoutCart = JSON.parse(localStorage.getItem('checkout'))
     ? JSON.parse(localStorage.getItem('checkout'))
     : []
 
@@ -78,7 +78,7 @@ function allProducts() {
         let hold = {
             id: `${product.id}`,
             productName: `${product.productName}`,
-            category: `${product.category}`, 
+            category: `${product.category}`,
             price: `${product.price}`,
             quantity: `${product.quantity}`,
             img_url: `${product.img_url}`
@@ -144,7 +144,7 @@ function createCard(product) {
     let hold = {
         id: `${product.id}`,
         productName: `${product.productName}`,
-        category: `${product.category}`, 
+        category: `${product.category}`,
         price: `${product.price}`,
         quantity: `${product.quantity}`,
         img_url: `${product.img_url}`
@@ -163,18 +163,18 @@ function createCard(product) {
     `;
 }
 
-function search() { 
+function search() {
 
-    if (searchValue.value.length > 2){
+    if (searchValue.value.length > 2) {
         displayArea.innerHTML = ""
-        
-        products.forEach(product => { 
+
+        products.forEach(product => {
             let valid = product.productName.toLowerCase().includes(searchValue.value)
             if (valid === true) {
                 createCard(product)
-            } else{
+            } else {
                 console.log("problem")
-            }          
+            }
         })
 
     } else {
@@ -183,9 +183,20 @@ function search() {
 
 }
 
-function add(button){
-    let val = JSON.parse(button.value); // Parse the JSON string back into an object
-    console.log(val);
-    checkoutCart.push(val);
-    localStorage.setItem('checkout' , JSON.stringify(checkoutCart));
+function add(button) {
+    let newItem = JSON.parse(button.value); // Parse the JSON string back into an object
+    let existingItem = checkoutCart.find(item => item.id === newItem.id); // Check if item already exists in checkoutCart
+
+    if (existingItem) {
+
+        existingItem.quantity += newItem.quantity;
+    } else {
+
+        checkoutCart.push(newItem);
+    }
+
+    // Update localStorage with the updated checkoutCart
+    localStorage.setItem('checkout', JSON.stringify(checkoutCart));
 }
+
+
