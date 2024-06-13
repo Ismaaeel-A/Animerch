@@ -15,8 +15,7 @@ let grandTotal = 0
 
 
 function displayTotal() {
-
-
+    grandTotalDisplay.innerHTML = `R${grandTotal}`
 }
 
 function addItem() {
@@ -34,22 +33,22 @@ function addItem() {
                   <td>${quantity}</td> 
                   <td>R${item.price}</td>
                   <td>R${total}</td>    
-                  <td><button type="button" onclick="add(this)" value='${hold}'>DELETE</button></td>          
+                  <td><button type="button" onclick="remove(this)" value='${hold}'>Remove Item</button></td>          
                 </tr>
             `;
 
         grandTotal += Number(total);
-        grandTotalDisplay.innerHTML = `R${grandTotal}`
+
     });
 } addItem()
 
 displayTotal();
 
-function add(button) {
+function remove(button) {
     console.log(button.value)
     let itemID = button.value
     let position
-
+    grandTotal = 0
     checkoutCart.forEach((target, i) => {
         if (target.id == itemID) {
             position = i
@@ -58,10 +57,18 @@ function add(button) {
             checkoutCart.splice(position, 1)
             localStorage.setItem('checkout', JSON.stringify(checkoutCart))
             addItem()
+            displayTotal()
             return;
         }
 
     })
+}
+
+function clear(){
+    checkoutCart = [];
+    localStorage.setItem('checkout', JSON.stringify(checkoutCart));
+    addItem()
+    displayTotal()
 }
 
 

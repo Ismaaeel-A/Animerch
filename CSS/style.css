@@ -10,6 +10,9 @@
     --main: rgb(0, 0, 0);
     --secondary: rgb(192, 192, 192);
     --light: rgb(51, 51, 51);
+    --clear: rgba(255, 255, 255, 0.596);
+    --card: rgb(136, 74, 149);
+    --border: rgb(189, 68, 113);
 }
 
 /* .container-fluid {
@@ -54,7 +57,11 @@ body {
     max-height: auto;
     /* width: 100vw; */
     /* padding-bottom: 1rem; */
-    background-color: rgb(232, 232, 232);
+    /* background-color: rgb(232, 232, 232); */
+    background-image:url( https://ismaaeel-a.github.io/allimages/Images/nano.png);
+    background-size: cover;
+    background-position: center;
+    
 }
 
 h1,
@@ -139,11 +146,14 @@ footer {
         min-height: 90vh;
         margin-bottom: 0;
         padding-top: 50px;
+        background-color: var(--clear);
     }
 
     & .card {
         width: 200px;
         height: fit-content;
+        background-color: var(--card);
+        border: 5px solid var();
 
         & img {
             width: 200px;

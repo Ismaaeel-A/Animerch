@@ -85,10 +85,10 @@ function allProducts() {
         };
         displayArea.innerHTML +=
             `
-      <div class="card m-3 bg-primary">
+      <div class="card m-3">
         <img src="${product.img_url}"" class=" card-img-top" alt="${product.productName}">
         <div class="card-body">
-          <h5>${product.productName}</h5>
+          <h6>${product.productName}</h6>
           <p class="card-text">R${product.price}</p>
           <button type="button" onclick="add(this)" value='${JSON.stringify(hold)}'>ADD</button>
         </div>
@@ -152,10 +152,10 @@ function createCard(product) {
 
     displayArea.innerHTML +=
         `
-    <div class="card m-3 bg-primary">
+    <div class="card m-3">
     <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" style="width: 200px; height: 200px;">
     <div class="card-body">
-    <h5>${product.productName}</h5>
+    <h6>${product.productName}</h6>
     <p class="card-text">R${product.price}</p>
     <button type="button" onclick="add(this)" value='${JSON.stringify(hold)}'>ADD</button>
     </div>
@@ -165,7 +165,7 @@ function createCard(product) {
 
 function search() {
 
-    if (searchValue.value.length > 2) {
+    if (searchValue.value.length > 0) {
         displayArea.innerHTML = ""
 
         products.forEach(product => {
