@@ -71,7 +71,10 @@ function CLear(){
     grandTotalDisplay.innerHTML = "R0"
 }
 
-
+function pay(){
+    CLear()
+    alert("Thank you for your purchase! Until we meet again")
+}
 
 
 

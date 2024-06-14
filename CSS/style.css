@@ -217,3 +217,11 @@ footer {
     display: flex;
     flex-direction: column;
 }
+
+.checkoutBtn{
+    margin-inline: auto;
+    width: 5rem;
+    background-color: var(--card);
+    color: var(--secondary);
+    border: 2px solid var(--main);
+}
