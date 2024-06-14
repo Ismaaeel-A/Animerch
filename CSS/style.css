@@ -163,3 +163,11 @@ footer {
 }
 
 /* Store Page CSS */
+
+.transparentBg{
+    min-height: 90vh;
+    margin-bottom: 0;
+    padding-top: 50px;
+    padding-inline: 30px;
+    background-color: var(--clear);
+}
