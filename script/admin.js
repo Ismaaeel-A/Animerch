@@ -8,6 +8,8 @@ let products = JSON.parse(localStorage.getItem('products')) ?
 console.table(products)
 
 products.forEach(product => {
+    let hold = product.id
+    console.log(`${hold}`)
     itemsDisplay.innerHTML +=
         `
                 <tr>
@@ -15,31 +17,85 @@ products.forEach(product => {
                   <td>${product.id}</td>
                   <td>${product.category}</td> 
                   <td>R${product.price}</td>
-                  <td><img src="${product.img_url}" alt="${product.productName}"></td>    
-                  <td></td>          
+                  <td><img src="${product.img_url}" alt="${product.productName}">
+                  <td><button type="button" onclick="editItem(this)" value='${hold}'>Edit Item</button>
+                    <button type="button" onclick="removeItem(this)" value='${hold}'>Delete Item</button>
+                  </td>
+
+                        
                 </tr>
         `
 });
 
-/* let createItem = document.querySelector('[createItem]') */
-class Create{
-    constructor(id) {
-    this.id = id
-    this.name = name
-    this.category = category
-    this.price = price
-    this.img_url = img_url
+function editItem(button) {
+    console.log(button.value)
 }
+
+function removeItem(button) {
+    console.log(button.value)
+    let itemID = button.value
+    let position
+    itemsDisplay.innerHTML = ""
+    products.forEach((target, i) => {
+        if (target.id == itemID) {
+            position = i
+            console.log(position)
+
+            products.splice(position, 1)
+            localStorage.setItem('products', JSON.stringify(products))
+
+            return;
+        }
+
+    })
+
+    refreshPage()
+}
+
+
+/* let createItem = document.querySelector('[createItem]') */
+class Create {
+    constructor(id, productName, category, price, quantity, img_url) {
+        this.id = id
+        this.productName = productName
+        this.category = category
+        this.price = price
+        this.quantity = quantity
+        this.img_url = img_url
+    }
 }
 
 
 function createItem() {
-    let Name = document.querySelector('[name]')
-    let id = document.querySelector('[id]')
+    let Name = document.querySelector('[name="name"]')
+    let id = document.querySelector('#id')
     let category = document.querySelector('[category]')
-    let price = document.querySelector('[price]')
+    let price = document.querySelector('[price="price"]')
+    let quantity = "1"
     let img_url = document.querySelector('[img_url]')
-    products.push(new Create(id.value))
-    console.log(Name, id, category, price, img_url)
-    console.log('fromcmcdicd');
+    products.push(new Create(id.value, Name.value, category.value, price.value, quantity.value, img_url.value))
+    localStorage.setItem('products', JSON.stringify(products))
+    refreshPage()
+}
+
+function refreshPage() {
+    itemsDisplay.innerHTML = ""
+
+    products.forEach(product => {
+        let hold = product.id
+        console.log(`${hold}`)
+        itemsDisplay.innerHTML +=
+            `
+                    <tr>
+                      <td>${product.productName}</td>
+                      <td>${product.id}</td>
+                      <td>${product.category}</td> 
+                      <td>R${product.price}</td>
+                      <td><img src="${product.img_url}" alt="${product.productName}">
+                      <td><button type="button" onclick="editItem(this)" value='${hold}'>Edit Item</button>
+                          <button type="button" onclick="removeItem(this)" value='${hold}'>Delete Item</button></td>    
+                                
+                    </tr>
+            `
+    });
 }

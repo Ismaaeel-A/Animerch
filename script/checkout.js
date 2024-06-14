@@ -65,11 +65,10 @@ function remove(button) {
 }
 
 function CLear(){
-    console.log('hehe');
     checkoutCart = [];
     localStorage.removeItem('checkout');
-/*     addItem()
-    displayTotal() */
+    cartDisplay.innerHTML = ""
+    grandTotalDisplay.innerHTML = "R0"
 }
 
 

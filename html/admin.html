@@ -42,11 +42,11 @@
 
     <section class="contentSection">
 
-      <div class="container transparentBg">
+      <div class="container transparentBg table-responsive">
 
         <h2>Admin</h2>
 
-        <table class="table table-dark table-hover">
+        <table class="table table-dark table-hover table-responsive">
           <thead>
             <tr>
 
@@ -64,24 +64,19 @@
           </tbody>
           <tfoot>
             <tr>
-              <!--               <td colspan="4">Grand Total:</td>
-              <td grandTotalDisplay></td>
-              <td><button type="button" onclick="clear()">Empty Cart</button></td> -->
+
             </tr>
           </tfoot>
 
         </table>
       </div>
 
-      <!-- <button class="bi-plus-circle-fill rounded createItem" createItem></button> -->
-
-      <!-- Button trigger modal -->
       <button createItem  type="button" class="btn btn-primary bi-plus-circle-fill  createItem" data-bs-toggle="modal"
         data-bs-target="#staticBackdrop">
 
       </button>
 
-      <!-- Modal -->
+      
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -93,14 +88,14 @@
             <div class="modal-body">
 
               <div class="modalFields">
-                <label>Name: <input type="text" name></label>
-                <label>ID: <input type="number" id></label>
+                <label>Name: <input type="text" name="name"></label>
+                <label>ID: <input type="number" id="id"></label>
                 <label>Category: <select category>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                    <option value="clothes">clothes</option>
+                    <option value="figures">figures</option>
+                    <option value="art">art</option>
                   </select></label>
-                <label>Price: <input type="number" price></label>
+                <label>Price: <input type="number" price="price"></label>
                 <label>Img url: <input type="text" img_url></label>
                 <label></label>
 
