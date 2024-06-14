@@ -7,65 +7,65 @@ let products = JSON.parse(localStorage.getItem('products')) ?
         JSON.stringify(
 
             [{
-                id: "235",
-                productName: "Chad 1:6",
-                category: "figures",
-                price: 300,
-                quantity: 1,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
-            },
+                    id: "235",
+                    productName: "Chad 1:6",
+                    category: "figures",
+                    price: 300,
+                    quantity: 1,
+                    img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
+                },
 
-            {
-                id: "853",
-                productName: "Akatsuki cloak",
-                category: "clothes",
-                price: 800,
-                quantity: 1,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
-            },
+                {
+                    id: "853",
+                    productName: "Akatsuki cloak",
+                    category: "clothes",
+                    price: 800,
+                    quantity: 1,
+                    img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
+                },
 
-            {
-                id: "480",
-                productName: "300x400 Asuka Portrait",
-                category: "art",
-                price: 1200,
-                quantity: 1,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
-            },
+                {
+                    id: "480",
+                    productName: "300x400 Asuka Portrait",
+                    category: "art",
+                    price: 1200,
+                    quantity: 1,
+                    img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
+                },
 
-            {
-                id: "245",
-                productName: "300x400 Itachi Portrait",
-                category: "art",
-                price: 800,
-                quantity: 1,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
-            },
+                {
+                    id: "245",
+                    productName: "300x400 Itachi Portrait",
+                    category: "art",
+                    price: 800,
+                    quantity: 1,
+                    img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
+                },
 
-            {
-                id: "194",
-                productName: "Plain sweater pattern",
-                category: "clothes",
-                price: 450,
-                quantity: 1,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
-            },
+                {
+                    id: "194",
+                    productName: "Plain sweater pattern",
+                    category: "clothes",
+                    price: 450,
+                    quantity: 1,
+                    img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
+                },
 
-            {
-                id: "212",
-                productName: "Ichigo 1:16",
-                category: "figures",
-                price: 120,
-                quantity: 1,
-                img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
-            }
+                {
+                    id: "212",
+                    productName: "Ichigo 1:16",
+                    category: "figures",
+                    price: 120,
+                    quantity: 1,
+                    img_url: "https://ismaaeel-a.github.io/allimages/Images/plc.png"
+                }
             ]
         )
     )
 
-let checkoutCart = JSON.parse(localStorage.getItem('checkout'))
-    ? JSON.parse(localStorage.getItem('checkout'))
-    : []
+let checkoutCart = JSON.parse(localStorage.getItem('checkout')) ?
+    JSON.parse(localStorage.getItem('checkout')) :
+    []
 
 
 
@@ -89,8 +89,10 @@ function allProducts() {
         <img src="${product.img_url}"" class=" card-img-top" alt="${product.productName}">
         <div class="card-body">
           <h6>${product.productName}</h6>
-          <p class="card-text">R${product.price}</p>
-          <button type="button" onclick="add(this)" value='${JSON.stringify(hold)}'>ADD</button>
+                <p class="card-text">R${product.price}</p>
+     <div class="row justify-content-between">
+    <button class="bi-plus-circle storeBTn" type="button" onclick="add(this)" value='${JSON.stringify(hold)}'></button>
+</div>
         </div>
       </div>
         `
@@ -157,7 +159,10 @@ function createCard(product) {
     <div class="card-body">
     <h6>${product.productName}</h6>
     <p class="card-text">R${product.price}</p>
-    <button type="button" onclick="add(this)" value='${JSON.stringify(hold)}'>ADD</button>
+    <div class="row justify-content-between">     
+    <button class="bi-plus-circle storeBTn" type="button" onclick="add(this)" value='${JSON.stringify(hold)}'></button>
+</div>
+
     </div>
     </div>
     `;
@@ -198,5 +203,3 @@ function add(button) {
     // Update localStorage with the updated checkoutCart
     localStorage.setItem('checkout', JSON.stringify(checkoutCart));
 }
-
-
