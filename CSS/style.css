@@ -110,7 +110,7 @@ footer {
             margin-block: 0.5rem;
             margin-inline: auto;
             width: 90%;
-            
+
         }
 
     }
@@ -190,19 +190,19 @@ footer {
     filter: blur(100%);
 }
 
-.storeBTn{
+.storeBTn {
     font-size: 25px;
     background-color: var(--clear);
     border: none;
 }
 
-[admin]{
-    & img{
+[admin] {
+    & img {
         width: 80px;
         aspect-ratio: 1;
     }
 
-    & .createItem{
+    & .createItem {
         background-color: var(--secondary);
         border: none;
         margin-inline: 50vw;
@@ -213,12 +213,12 @@ footer {
     }
 }
 
-.modalFields{
+.modalFields {
     display: flex;
     flex-direction: column;
 }
 
-.checkoutBtn{
+.checkoutBtn {
     margin-inline: auto;
     width: 5rem;
     background-color: var(--card);

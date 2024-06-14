@@ -52,8 +52,6 @@ function removeItem(button) {
     refreshPage()
 }
 
-
-/* let createItem = document.querySelector('[createItem]') */
 class Create {
     constructor(id, productName, category, price, quantity, img_url) {
         this.id = id
