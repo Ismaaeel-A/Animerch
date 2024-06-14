@@ -72,6 +72,9 @@ let checkoutCart = JSON.parse(localStorage.getItem('checkout')) ?
 let searchValue = document.querySelector('[search]')
 let displayArea = document.querySelector('[productDisplay]')
 
+
+
+
 function allProducts() {
     displayArea.innerHTML = ""
     products.forEach(product => {
@@ -189,8 +192,8 @@ function search() {
 }
 
 function add(button) {
-    let newItem = JSON.parse(button.value); // Parse the JSON string back into an object
-    let existingItem = checkoutCart.find(item => item.id === newItem.id); // Check if item already exists in checkoutCart
+    let newItem = JSON.parse(button.value);
+    let existingItem = checkoutCart.find(item => item.id === newItem.id); 
 
     if (existingItem) {
 
@@ -200,6 +203,5 @@ function add(button) {
         checkoutCart.push(newItem);
     }
 
-    // Update localStorage with the updated checkoutCart
     localStorage.setItem('checkout', JSON.stringify(checkoutCart));
 }

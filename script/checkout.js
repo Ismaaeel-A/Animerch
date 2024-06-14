@@ -64,11 +64,12 @@ function remove(button) {
     })
 }
 
-function clear(){
+function CLear(){
+    console.log('hehe');
     checkoutCart = [];
-    localStorage.setItem('checkout', JSON.stringify(checkoutCart));
-    addItem()
-    displayTotal()
+    localStorage.removeItem('checkout');
+/*     addItem()
+    displayTotal() */
 }
 
 

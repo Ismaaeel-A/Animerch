@@ -192,3 +192,25 @@ footer {
     background-color: var(--clear);
     border: none;
 }
+
+[admin]{
+    & img{
+        width: 80px;
+        aspect-ratio: 1;
+    }
+
+    & .createItem{
+        background-color: var(--secondary);
+        border: none;
+        margin-inline: 50vw;
+        font-size: 60px;
+        color: var(--card);
+        position: fixed;
+        bottom: 100px;
+    }
+}
+
+.modalFields{
+    display: flex;
+    flex-direction: column;
+}
