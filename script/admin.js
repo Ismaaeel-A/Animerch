@@ -29,7 +29,7 @@ products.forEach(product => {
 
 function editItem(button) {
     console.log(button.value)
-    alert(button.value)
+    /* alert(button.value) */
 }
 
 function removeItem(button) {
