@@ -18,14 +18,15 @@ function displayTotal() {
 }
 
 function addItem() {
-try{    checkoutCart.forEach(item => {
-    let quantity = `${item.quantity.length}`
-    let total = `${item.price * item.quantity.length}`
+    try {
+        checkoutCart.forEach(item => {
+            let quantity = `${item.quantity.length}`
+            let total = `${item.price * item.quantity.length}`
 
-    let hold = item.id
+            let hold = item.id
 
-    cartDisplay.innerHTML +=
-        `
+            cartDisplay.innerHTML +=
+                `
             <tr>
               <td>${item.productName}</td>
               <td>${item.category}</td>
@@ -36,45 +37,48 @@ try{    checkoutCart.forEach(item => {
             </tr>
         `;
 
-    grandTotal += Number(total);
+            grandTotal += Number(total);
 
-});} catch(e){
-    alert("An error has occurred")
-}
+        });
+    } catch (e) {
+        alert("An error has occurred")
+    }
 }
 addItem()
 
 displayTotal();
 
 function remove(button) {
-try{
-    console.log(button.value)
-    let itemID = button.value
-    let position
-    grandTotal = 0
-    checkoutCart.forEach((target, i) => {
-        if (target.id == itemID) {
-            position = i
-            console.log(position)
-            cartDisplay.innerHTML = ""
-            checkoutCart.splice(position, 1)
-            localStorage.setItem('checkout', JSON.stringify(checkoutCart))
-            addItem()
-            displayTotal()
-            return;
-        }
+    try {
+        console.log(button.value)
+        let itemID = button.value
+        let position
+        grandTotal = 0
+        checkoutCart.forEach((target, i) => {
+            if (target.id == itemID) {
+                position = i
+                console.log(position)
+                cartDisplay.innerHTML = ""
+                checkoutCart.splice(position, 1)
+                localStorage.setItem('checkout', JSON.stringify(checkoutCart))
+                addItem()
+                displayTotal()
+                return;
+            }
 
-    })
-} catch(e){
-    alert("An error has occured")
-}
+        })
+    } catch (e) {
+        alert("An error has occurred")
+    }
 }
 
 function CLear() {
-try{    checkoutCart = [];
-    localStorage.removeItem('checkout');
-    cartDisplay.innerHTML = ""
-    grandTotalDisplay.innerHTML = "R0"} catch(e){
+    try {
+        checkoutCart = [];
+        localStorage.removeItem('checkout');
+        cartDisplay.innerHTML = ""
+        grandTotalDisplay.innerHTML = "R0"
+    } catch (e) {
         alert("An error has occurred")
     }
 }
