@@ -176,6 +176,15 @@ footer {
             width: 200px;
             height: 200px;
         }
+
+        & button {
+            transition: background 0.3s, color 0.3s;
+
+            &:hover {
+                background: var(--light);
+                color: var(--secondary);
+            }
+        }
     }
 }
 
@@ -205,17 +214,23 @@ footer {
     & .createItem {
         background-color: var(--secondary);
         border: none;
-        margin-inline: 50vw;
-        font-size: 60px;
+        margin-inline: auto;
+        font-size: 20px;
         color: var(--card);
-        position: fixed;
-        bottom: 100px;
+
     }
 }
 
 .modalFields {
     display: flex;
     flex-direction: column;
+    & input{
+        width: 100%;
+    }
+
+    & select{
+        margin-block: 8px ;
+    }
 }
 
 .checkoutBtn {
@@ -224,4 +239,8 @@ footer {
     background-color: var(--card);
     color: var(--secondary);
     border: 2px solid var(--main);
+}
+
+td>button {
+    padding-inline: 5px;
 }

@@ -33,7 +33,7 @@ function addItem() {
               <td>${quantity}</td> 
               <td>R${item.price}</td>
               <td>R${total}</td>    
-              <td><button type="button" onclick="remove(this)" value='${hold}'>Remove Item</button></td>          
+              <td><button type="button" onclick="remove(this)" value='${hold}' class="bi-trash3-fill"></button></td>          
             </tr>
         `;
 

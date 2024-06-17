@@ -18,8 +18,8 @@ products.forEach(product => {
                   <td>${product.category}</td> 
                   <td>R${product.price}</td>
                   <td><img src="${product.img_url}" alt="${product.productName}">
-                  <td><button type="button" onclick="editItem(this)" value='${hold}'>Edit Item</button>
-                    <button type="button" onclick="removeItem(this)" value='${hold}'>Delete Item</button>
+                  <td><button type="button" onclick="editItem(this)" value='${hold}' class="bi-pencil-fill"></button>
+                    <button type="button" onclick="removeItem(this)" value='${hold}' class="bi-trash3-fill"></button>
                   </td>
 
                         
@@ -29,9 +29,11 @@ products.forEach(product => {
 
 function editItem(button) {
     console.log(button.value)
+    alert(button.value)
 }
 
 function removeItem(button) {
+try {
     console.log(button.value)
     let itemID = button.value
     let position
@@ -50,6 +52,9 @@ function removeItem(button) {
     })
 
     refreshPage()
+} catch (e) {
+    alert("An error has occured. Reload the page.")
+}
 }
 
 class Create {
@@ -77,6 +82,7 @@ function createItem() {
 }
 
 function refreshPage() {
+try {
     itemsDisplay.innerHTML = ""
 
     products.forEach(product => {
@@ -90,10 +96,13 @@ function refreshPage() {
                       <td>${product.category}</td> 
                       <td>R${product.price}</td>
                       <td><img src="${product.img_url}" alt="${product.productName}">
-                      <td><button type="button" onclick="editItem(this)" value='${hold}'>Edit Item</button>
-                          <button type="button" onclick="removeItem(this)" value='${hold}'>Delete Item</button></td>    
+                      <td><button type="button" onclick="editItem(this)" value='${hold}' class="bi-pencil-fill"></button>
+                          <button type="button" onclick="removeItem(this)" value='${hold}' class="bi-trash3-fill"></button></td>    
                                 
                     </tr>
             `
     });
+} catch (e) {
+    alert("An error has occurred. Reload the page.")
+}
 }
