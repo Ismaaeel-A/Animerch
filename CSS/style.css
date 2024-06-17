@@ -12,9 +12,9 @@
     --main: rgb(0, 0, 0);
     --secondary: rgb(192, 192, 192);
     --light: rgb(51, 51, 51);
-    --clear: rgba(255, 255, 255, 0.596);
+    --clear: #ffffff98;
     --card: rgb(136, 74, 149);
-    --border: rgb(189, 68, 113);
+    --border: #bd4471;
 }
 
 /* .container-fluid {

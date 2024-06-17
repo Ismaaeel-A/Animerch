@@ -41,7 +41,7 @@ function addItem() {
 
         });
     } catch (e) {
-        alert("An error has occurred")
+        alert("An error has occurred. Please reload the page.")
     }
 }
 addItem()
@@ -68,7 +68,7 @@ function remove(button) {
 
         })
     } catch (e) {
-        alert("An error has occurred")
+        alert("An error has occurred. Please reload the page.")
     }
 }
 
@@ -79,7 +79,7 @@ function CLear() {
         cartDisplay.innerHTML = ""
         grandTotalDisplay.innerHTML = "R0"
     } catch (e) {
-        alert("An error has occurred")
+        alert("An error has occurred. Please reload the page.")
     }
 }
 
