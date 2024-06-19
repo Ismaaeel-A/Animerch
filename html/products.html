@@ -65,12 +65,10 @@
 
               <div class="sort">
                 <label>sort:
-                  <select name="sort" id="sort">
-                    <option value=""></option>
-                    <option value="">Alphabetical, A-Z</option>
-                    <option value="">Alphabetical, Z-A</option>
-                    <option value="">Price, low to high</option>
-                    <option value="">Price, high to low</option>
+                  <select name="sort" id="sort" sort oninput="sorting()">
+                    <option ></option>
+                    <option value="asc">Price, low to high</option>
+                    <option value="des">Price, high to low</option>
                   </select>
                 </label>
 
@@ -81,14 +79,6 @@
                   <input type="text" search oninput="search()">
                 </label>
               </div>
-
-<!--               <div class="row d-flex align-content-center filterSort_opt">
-
-
-              </div> -->
-
-
-
 
             </div>
           </div>

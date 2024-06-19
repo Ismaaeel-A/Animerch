@@ -185,7 +185,7 @@ function search() {
             if (valid === true) {
                 createCard(product)
             } else {
-                console.log("problem")
+                console.log("false")
             }
         })
 
@@ -208,4 +208,21 @@ function add(button) {
     }
 
     localStorage.setItem('checkout', JSON.stringify(checkoutCart));
+}
+
+function sorting(product) {
+    let sortVal = document.querySelector('[sort]')
+
+    if (sortVal.value == "asc") {
+        console.log(sortVal.value);
+        products.sort((a, b) => b.amount - a.amount)
+        createCard(product)
+    }
+
+    if (sortVal.value == "des") {
+        console.log(sortVal.value);
+        products.sort((a, b) => a.amount - b.amount)
+        createCard(product)
+    }
+
 }
