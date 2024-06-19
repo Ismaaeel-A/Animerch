@@ -210,19 +210,22 @@ function add(button) {
     localStorage.setItem('checkout', JSON.stringify(checkoutCart));
 }
 
-function sorting(product) {
+function sorting() {
+try{
     let sortVal = document.querySelector('[sort]')
 
     if (sortVal.value == "asc") {
-        console.log(sortVal.value);
-        products.sort((a, b) => b.amount - a.amount)
-        createCard(product)
+        products.sort((a, b) => b.price - a.price)
+        allProducts()
     }
 
     if (sortVal.value == "des") {
-        console.log(sortVal.value);
-        products.sort((a, b) => a.amount - b.amount)
-        createCard(product)
+        products.sort((a, b) => a.price - b.price)
+        allProducts()
+
     }
+} catch(e){
+    alert("An error has occured.")
+}
 
 }
