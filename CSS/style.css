@@ -224,6 +224,10 @@ footer {
 .modalFields {
     display: flex;
     flex-direction: column;
+    & *{
+        color: black;
+    }
+
     & input{
         width: 100%;
     }
