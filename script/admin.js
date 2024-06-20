@@ -98,12 +98,11 @@ function editItemConfirm() {
     let price = document.querySelector('[editPrice]')
     let quantity = "1"
     let img_url = document.querySelector('[editUrl]')
-    products.push(new Create(id.value, Name.value, category.value, price.value, quantity.value, img_url.value))
-    localStorage.setItem('products', JSON.stringify(products))
 
-    let itemID = id
+    let itemID = document.querySelector('[editID]').value
     let position
     products.forEach((target, i) => {
+        console.log(target.id , itemID);
         if (target.id == itemID) {
             position = i
             console.log(position)
@@ -114,6 +113,15 @@ function editItemConfirm() {
         }
 
     })
+
+
+
+
+
+    products.push(new Create(id.value, Name.value, category.value, price.value, quantity.value, img_url.value))
+    localStorage.setItem('products', JSON.stringify(products))
+
+
 
 
 }
