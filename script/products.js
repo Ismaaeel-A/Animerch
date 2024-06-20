@@ -181,7 +181,7 @@ function search() {
         displayArea.innerHTML = ""
 
         products.forEach(product => {
-            let valid = product.productName.toLowerCase().includes(searchValue.value)
+            let valid = product.productName.toLowerCase().includes(searchValue.value.toLowerCase())
             if (valid === true) {
                 createCard(product)
             } else {
